@@ -74,6 +74,33 @@
   </head>
   <body>
     <header>
+<form id="search-form">
+  <input type="search" id="search-input" placeholder="Search...">
+  <button type="submit">Go</button>
+</form>
+
+<script>
+const form = document.querySelector('#search-form');
+const input = document.querySelector('#search-input');
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const searchTerm = input.value.toLowerCase();
+  const sections = document.querySelectorAll('section');
+
+  sections.forEach(section => {
+    if (section.textContent.toLowerCase().includes(searchTerm)) {
+      section.style.display = 'block';
+    } else {
+      section.style.display = 'none';
+    }
+  });
+});
+<form>
+  <input type="search" placeholder="Search...">
+  <button type="submit">Go</button>
+</form>
+</script>
       <h1>Wiki Page Title</h1>
     </header>
     <nav>
